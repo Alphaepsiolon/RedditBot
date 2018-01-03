@@ -13,15 +13,15 @@ import fnmatch
 #In this step the bot should log into the website and respond "Logged in as 'insert_name'"
 def login_node():
     print "Logging in..."
-    reddit = praw.Reddit(username = 'TestBot9999',
-                         password = 'lampinkup',
-                         client_secret = 'oiaaxWZX7rz0aonM-TrAky2YVlQ',
-                         client_id = 'Ke-DTxhtk6Ev3Q',
-                         user_agent = 'Test Bot')
+    reddit = praw.Reddit(username = '',
+                         password = '',
+                         client_secret = '',
+                         client_id = '',
+                         user_agent = '')
     name = str(reddit.user.me())
     print "Hurrah! Logged in as " + name
     
-    user = reddit.redditor('Betaalpha4')
+    user = reddit.redditor('')
     sub_name = raw_input("Enter the name of the subreddit you want to access: ")
     subreddit = reddit.subreddit(sub_name)
     
