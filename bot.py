@@ -21,7 +21,7 @@ def login_node():
     name = str(reddit.user.me())
     print "Hurrah! Logged in as " + name
     
-    user = reddit.redditor('Betaalpha4')
+    user = reddit.redditor('')
     sub_name = raw_input("Enter the name of the subreddit you want to access: ")
     subreddit = reddit.subreddit(sub_name)
     cent_node(subreddit,user)
