@@ -4,7 +4,6 @@
 #For now, you can only run one command per comment.
 #Created by Adithya Narayan
 #License: MIT License
-#from bs4 import BeautifulSoup
 #################################################################################
 #!/usr/bin/env python
 import praw
@@ -77,8 +76,7 @@ def cent_node(subreddit,user):
 def gsearch_node(command,comm):
     print "Currently in the gsearch node"
     print command
-
-    #Now here, I should run a google search based off of the string inside the 
+    #Unimplemented at the moment.
     
 
 #This can be used as a unit converter.Command is a string and comm is the actual comment object        
@@ -86,7 +84,7 @@ def conv_node(command,comm):
     print "conv_node"
     print command
 
-    #To get re.search to wark, I'll have to clean up the command to just the stuff in the brackets.(This can be improved on)
+    #To get re.search to work, I'll have to clean up the command to just the stuff in the brackets.(This can be improved on)
     #This removes the "!conv" part
     m = re.search('!conv(.+)',command)
     if m:
