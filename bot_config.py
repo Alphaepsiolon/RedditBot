@@ -1,7 +1,7 @@
 import praw
-
-reddit = praw.Reddit(username = 'TestBot9999',
-                         password = 'lampinkup',
-                         client_secret = 'oiaaxWZX7rz0aonM-TrAky2YVlQ',
-                         client_id = 'Ke-DTxhtk6Ev3Q',
-                         user_agent = 'Test Bot')
+#The bot's information should be filled in below.
+reddit = praw.Reddit(username = '',
+                         password = '',
+                         client_secret = '',
+                         client_id = '',
+                         user_agent = '')
