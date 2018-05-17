@@ -6,6 +6,7 @@
 #License: MIT License
 #from bs4 import BeautifulSoup
 #################################################################################
+#!/usr/bin/env python
 import praw
 import re
 import pdb
@@ -13,23 +14,17 @@ import os
 import fnmatch
 
 from pint import UnitRegistry
+from bot_config import reddit
 
 #In this step the bot should log into the website and respond "Logged in as 'insert_name'"
 def login_node():
     print "Logging in..."
-    reddit = praw.Reddit(username = '',
-                         password = '',
-                         client_secret = '',
-                         client_id = '',
-                         user_agent = '')
-    #The login stuff above was intentionally let blank 
     name = str(reddit.user.me())
     print "Hurrah! Logged in as " + name
     
-    user = reddit.redditor('')
+    user = reddit.redditor('Betaalpha4')
     sub_name = raw_input("Enter the name of the subreddit you want to access: ")
     subreddit = reddit.subreddit(sub_name)
-    
     cent_node(subreddit,user)
 
 #This should return the command from the comment body
@@ -52,7 +47,7 @@ def cent_node(subreddit,user):
             comm_replied = f.read()
             comm_replied = comm_replied.split('\n')
             comm_replied = list(filter(None,comm_replied))
-            print comm_replied
+            print comm_replied 
 
     for comm in user.comments.new(limit = 5):
         print comm.body
@@ -71,6 +66,8 @@ def cent_node(subreddit,user):
                 gsearch_node(command_return(comm,"!gsearch"),comm)
             else:
                 print "Everything here seems to have been looked at"
+        else:
+            print 
                 
     with open("comm_replied.txt","w") as f:
         for comm_id in comm_replied:
@@ -78,7 +75,10 @@ def cent_node(subreddit,user):
     
 #This should return the top 5 Google search results for a given string.
 def gsearch_node(command,comm):
-    
+    print "Currently in the gsearch node"
+    print command
+
+    #Now here, I should run a google search based off of the string inside the 
     
 
 #This can be used as a unit converter.Command is a string and comm is the actual comment object        
@@ -113,9 +113,9 @@ def conv_node(command,comm):
         user_out = user_in.to(ureg.parse_expression(conv_lst[3]))
         print user_out
         print "%s is %s" %(user_in,user_out)
-        comm.reply('%s is %s')
+        comm.reply(str(user_in)+' is '+str(user_out))
     else:
         print "Wait, what?! What are you doing here? Dear heavens! Run, run while you can!"
+
     
 login_node()
-
